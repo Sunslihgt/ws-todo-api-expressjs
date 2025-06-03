@@ -10,7 +10,7 @@ router.post('/', authentification, requiredFields(["title", "content"]), tasksCo
 router.get('/', authentification, tasksController.getAllTask);
 router.get('/:id', authentification, tasksController.getTaskById);
 router.delete('/:id', authentification, tasksController.deleteTaskById);
-router.put('/:id', authentification, tasksController.putTaskById);
-router.patch('/:id', authentification, requiredFields(["title", "content", "compteted"]), tasksController.patchTaskById);
+router.put('/:id', authentification, requiredFields(["title", "content", "compteted"]), tasksController.putTaskById);
+router.patch('/:id', authentification, tasksController.patchTaskById);
 
 module.exports = router;

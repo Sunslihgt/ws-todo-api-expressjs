@@ -1,5 +1,3 @@
-// const tasksList = [];
-
 const Task = require("../models/task.model");
 
 module.exports = {
@@ -88,9 +86,9 @@ module.exports = {
             if (title === undefined && title === undefined && title === undefined) {
                 return res.status(400).json({ message: "At least one of the following fields is required : title, content and completed" });
             }
-            task.title = title;
-            task.content = content;
-            task.completed = completed;
+            task.title = title ?? task.title;
+            task.content = content ?? task.content;
+            task.completed = completed ?? task.completed;
             await task.save();
 
             res.status(200).json({ message: "Task updated successfully" });
